@@ -20,7 +20,7 @@ pipeline{
         stage('push') {
             steps {
                 sh "echo $DOCKER_LOGIN_CREDENTIALS_PSW | docker login -u $DOCKER_LOGIN_CREDENTIALS_USR --password-stdin"
-                sh "docker push  surekamani/jan23:$BUILD_NUMBER"
+                sh "docker push surekamani/jan23:$BUILD_NUMBER"
             }
         }
         stage('deploy') {
