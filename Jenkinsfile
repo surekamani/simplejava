@@ -25,7 +25,7 @@ pipeline{
         }
         stage('deploy') {
             steps {
-                sh "docker run -p 8080:8080 surekamani/jan23:$BUILD_NUMBER java -jar target/simplejava-1.0-SNAPSHOT.jar"
+                sh "docker run -p 8080:8080 surekamani/jan23:$BUILD_NUMBER"
             }
         }
     }
