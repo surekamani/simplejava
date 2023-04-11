@@ -3,7 +3,7 @@ pipeline{
         label 'docker'
     }
     environment {
-        LOGIN_CREDENTIALS=credentials('do')
+       DOCKER_LOGIN_CREDENTIALS=credentials('do')
     }
     stages {
         stage('checkout') {
@@ -19,7 +19,7 @@ pipeline{
         }
         stage('push') {
             steps {
-                sh "echo $LOGIN_CREDENTIALS_PSW | docker login -u $LOGIN_CREDENTIALS_USR --password-stdin"
+                sh "echo $LOGIN_CREDENTIALS_PSW | docker login -u $DOCKER_LOGIN_CREDENTIALS_USR --password-stdin"
                 sh "docker push surekamani/jan23:$BUILD_NUMBER"
             }
         }
